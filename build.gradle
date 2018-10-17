@@ -1,0 +1,88 @@
+plugins {
+    id 'java'
+    id 'ru.vyarus.quality' version '2.2.0'
+    id "io.qameta.allure" version "2.5"
+}
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+description = "App Test Automation"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+
+    mavenCentral()
+}
+
+dependencies {
+
+    compile group: 'org.testng', name: 'testng', version: '6.14.3'
+    compile group: 'com.google.guava', name: 'guava', version: 'LATEST'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
+    compile group: 'io.appium', name: 'java-client', version: '6.1.0'
+    compile group: 'com.github.genium-framework', name: 'Appium-Support', version: '1.0.5'
+    compile group: 'org.apache.poi', name: 'poi', version: '4.0.0'
+    compile group: 'com.google.code.gson', name: 'gson', version: 'LATEST'
+    compile group: 'com.aventstack', name: 'extentreports', version: '3.1.5'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.12'
+    compile group: 'com.jayway.awaitility', name: 'awaitility', version: '1.7.0'
+    compile group: 'org.assertj', name: 'assertj-core', version: '3.11.1'
+    compile group: 'log4j', name: 'log4j', version: 'LATEST'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.197'
+    compile 'org.slf4j:slf4j-api:1.7.24'
+    compile 'org.slf4j:slf4j-log4j12:1.7.24'
+    compile group: 'ru.yandex.qatools.ashot', name: 'ashot', version: '1.5.4'
+    compile group: 'org.assertj', name: 'assertj-db', version: '1.2.0'
+    compile group: 'com.relevantcodes', name: 'extentreports', version: '2.41.2'
+
+}
+
+configurations {
+    agent
+}
+
+test() {
+    useTestNG() {
+        scanForTestClasses = false
+        suites 'src/test/resources/Runner/testng.xml'
+        ignoreFailures = true
+
+    }
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED"
+        showExceptions = true
+        showStackTraces = true
+        showCauses = true
+        showStandardStreams = true
+
+    }
+}
+
+allure {
+    autoconfigure = true
+    aspectjweaver = true
+    version = '2.5.0'
+    useTestNG {
+        version = '2.6.0'
+    }
+
+}
+
+//gradle.buildFinished { buildResult ->
+//    String ss = buildResult.getFailure()
+//    if (ss!=null) {
+//    } else {
+//        println "Build Succeeded!"
+//    }
+
+
+
+

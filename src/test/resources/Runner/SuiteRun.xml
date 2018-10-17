@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" >
+
+    <!--<
+    adb devices:
+    Sony xz2 - QV700G3N1F
+    ViVo - df89e0b3
+    zte - ffc64100
+    !-->
+    <listeners>
+        <listener class-name="Utils.listener.Listener"/>
+        <listener class-name="Utils.listener.AnnotationTransformer"/>
+    </listeners>
+
+    <test name="Test on ZTE device">
+        <parameter name="port" value="4571"/>
+        <parameter name="bpport" value="5764"/>
+        <parameter name="udid" value="ffc64100"/>
+        <parameter name="platformName" value="Android"/>
+        <classes>
+            <class name="tests.Android.PermissionTest_Android"/>
+        </classes>
+    </test>
+
+    <test name="Test on Vivo device">
+        <parameter name="port" value="4573"/>
+        <parameter name="bpport" value="5768"/>
+        <parameter name="udid" value="df89e0b3"/>
+        <parameter name="platformName" value="Android"/>
+        <classes>
+            <class name="tests.Android.PermissionTest_Android"/>
+        </classes>
+    </test>
+
+
+    <test name="iPhone X">
+        <parameter name="bpport" value="5770"/>
+        <parameter name="udid" value="834f7ef0d1f8a40753e86e16024f79d07a748bb1"/>
+        <parameter name="platformName" value="iOS"/>
+        <classes>
+            <class name="tests.iOS.PermissionTest_iOS"/>
+        </classes>
+    </test>
+
+</suite>
