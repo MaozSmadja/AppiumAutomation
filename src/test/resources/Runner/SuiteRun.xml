@@ -36,7 +36,7 @@
 
     <test name="iPhone X">
         <parameter name="bpport" value="5770"/>
-        <parameter name="udid" value="834f7ef0d1f8a40753e86e16024f79d07a748bb1"/>
+        <parameter name="udid" value="834f7ef0d1f8a40753e86e16024f79d07a3bb1"/>
         <parameter name="platformName" value="iOS"/>
         <classes>
             <class name="tests.iOS.PermissionTest_iOS"/>
