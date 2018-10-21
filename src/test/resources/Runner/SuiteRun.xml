@@ -16,7 +16,7 @@
     <test name="Test on ZTE device">
         <parameter name="port" value="4571"/>
         <parameter name="bpport" value="5764"/>
-        <parameter name="udid" value="ffc64100"/>
+        <parameter name="udid" value="ffc64300"/>
         <parameter name="platformName" value="Android"/>
         <classes>
             <class name="tests.Android.PermissionTest_Android"/>
@@ -26,7 +26,7 @@
     <test name="Test on Vivo device">
         <parameter name="port" value="4573"/>
         <parameter name="bpport" value="5768"/>
-        <parameter name="udid" value="df89e0b3"/>
+        <parameter name="udid" value="df89h0b3"/>
         <parameter name="platformName" value="Android"/>
         <classes>
             <class name="tests.Android.PermissionTest_Android"/>
